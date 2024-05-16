@@ -1,0 +1,21 @@
+<form [formGroup]="todoForm" (ngSubmit)="handleSubmit()">
+    <div class="col-4">
+        Description: <input type="text" formControlName="description"><br>
+        <div class="alert alert-danger mt-1" *ngIf="todoForm.get('description')?.hasError('required')">Description required</div>
+    </div>
+
+<div>
+    Priority:
+    <input type="radio" value="high" formControlName="priority"> High 
+    <input type="radio" value="medium" formControlName="priority"> Medium
+    <input type="radio" value="low" formControlName="priority"> Low<br>
+    <div class="alert alert-danger" *ngIf="todoForm.get('priority')?.hasError('required')" >Priority required</div>
+</div>
+<div>
+    Due: <input type="date" formControlName="due"><br>
+    <div class="alert alert-danger" *ngIf="todoForm.get('due')?.hasError('required')">Due date required</div>
+    <div class="alert alert-danger" *ngIf="todoForm.get('due')?.hasError('futureDate')">Due date has to be a future date.</div>
+</div>
+    <button type="submit" class="btn btn-secondary">Submit</button>
+  </form>
+  

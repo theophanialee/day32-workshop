@@ -1,0 +1,10 @@
+<table class="border m-3" *ngFor="let todo of taskList">
+    <tr>
+        <td class="px-2">{{ todo.description }}</td>
+    </tr>
+    <tr>
+
+        <td class="px-2">{{ todo.priority }}</td>
+        <td class="px-2">{{ todo.due | date: 'MMM dd' }}</td>
+    </tr>
+</table>        
